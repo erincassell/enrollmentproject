@@ -29,11 +29,13 @@ function compareandadd() {
     }
   }
   
-  //Paste these into the bottom of the first page starting in column 2
-  gradingSS.getRange(gradingDT.length + 1, 2, additions.length, additions[0].length).setValues(additions);
+  if(additions.length > 0) {
+    //Paste these into the bottom of the first page starting in column 2
+    gradingSS.getRange(gradingDT.length + 1, 2, additions.length, additions[0].length).setValues(additions);
   
-  //Sort the entire sheet by name including the first row.
-  gradingDT = getDataValues(gradingSS.getName());
-  var sortRng = gradingSS.getRange(2, 1, gradingDT.length, gradingDT[0].length);
-  sortRng.sort(3);
+    //Sort the entire sheet by name including the first row.
+    gradingDT = getDataValues(gradingSS.getName());
+    var sortRng = gradingSS.getRange(2, 1, gradingDT.length, gradingDT[0].length);
+    sortRng.sort(3);
+  }
 }
